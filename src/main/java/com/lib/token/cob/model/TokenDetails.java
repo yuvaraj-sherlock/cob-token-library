@@ -1,4 +1,4 @@
-package com.cob.model;
+package com.lib.token.cob.model;
 
 import lombok.Data;
 

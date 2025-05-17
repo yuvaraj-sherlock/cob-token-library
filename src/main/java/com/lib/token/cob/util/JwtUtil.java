@@ -1,7 +1,7 @@
-package com.cob.util;
+package com.lib.token.cob.util;
 
-import com.cob.model.TokenDetails;
-import com.cob.model.UserDto;
+import com.lib.token.cob.model.TokenDetails;
+import com.lib.token.cob.model.UserDto;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
