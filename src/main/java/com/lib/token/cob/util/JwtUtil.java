@@ -14,8 +14,13 @@ import java.util.Date;
 
 public class JwtUtil {
 
-    private static final String SECRET_KEY = "Y29ycmVjdC1zZWNyZXQta2V5LXN0b3JlZC1zYWZlbHk=";
-    private final Key key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(SECRET_KEY));
+    private final String SECRET_KEY;
+    private final Key key;
+
+    public JwtUtil(String SECRET_KEY){
+        this.SECRET_KEY = SECRET_KEY;
+        this.key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(SECRET_KEY));
+    }
 
     public String generateToken(UserDto userDto) {
         return Jwts.builder()
