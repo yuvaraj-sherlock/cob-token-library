@@ -46,7 +46,7 @@ public class JwtUtil {
         Objects.requireNonNull(userDto, "userDto must not be null");
         return Jwts.builder()
                 .setSubject(userDto.getUsername())
-                .claim(TokenClaims.ROLE.name(), userDto.getRole()) // Add role as a custom claim.ROLE, userDto.getRole()) // Add role as a custom claim
+                .claim(TokenClaims.ROLE.name(), userDto.getRole())  // Add role as a custom claim
                 .setIssuer(TokenClaims.ISSUER.name())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + expirationMillis)) // 1 hour
