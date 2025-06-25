@@ -47,7 +47,7 @@ public class JwtUtil {
         return Jwts.builder()
                 .setSubject(userDto.getUsername())
                 .claim(TokenClaims.ROLE.name(), userDto.getRole())  // Add role as a custom claim
-                .setIssuer(TokenClaims.ISSUER.name())
+                .setIssuer(TokenClaims.ISSUER.getClaimName())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + expirationMillis)) // 1 hour
                 .signWith(key, SignatureAlgorithm.HS256)
@@ -76,7 +76,7 @@ public class JwtUtil {
     public boolean validateToken(String token) {
         try{
             Claims claims = extractClaims(token);
-            if (!TokenClaims.ISSUER.name().equals(claims.getIssuer())) {
+            if (!TokenClaims.ISSUER.getClaimName().equals(claims.getIssuer())) {
                 return false;
             }
             return claims.getExpiration().after(new Date());

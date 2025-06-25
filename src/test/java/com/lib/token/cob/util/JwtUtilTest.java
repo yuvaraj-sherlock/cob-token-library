@@ -51,7 +51,7 @@ class JwtUtilTest {
 
         assertThat(details.getToken()).isEqualTo(token);
         assertThat(details.getRole()).isEqualTo("ADMIN");
-        assertThat(details.getIssuer()).isEqualTo(TokenClaims.ISSUER.name());
+        assertThat(details.getIssuer()).isEqualTo(TokenClaims.ISSUER.getClaimName());
         assertThat(details.getExpireAt()).isAfter(new Date());
     }
 
